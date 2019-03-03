@@ -1,12 +1,28 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-body {
-background-color: ghostwhite;
-}
 .pagehome{
-    padding: 150px 0;
+    padding: 100px 0;
 }
-.mat-form-field-infix{
-    width: 100% !important;
-    margin-right: 50px;
-} 
+#darkred{
+    color:darkred !important;
+}
+#add{
+    color: white;
+    letter-spacing: 1.5px;
+    background-color:  darkred !important;
+    margin-left: 1%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 14px;
+}
+.example-form .example-full-width{
+    width:  85%;
+    margin-right: 5px;
+}
+
+.mat-form-field{
+    width: 45%;
+   
+}
+#spaceAdd{
+    margin-top: -11px;
+}
