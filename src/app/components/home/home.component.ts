@@ -47,5 +47,11 @@ export class HomeComponent implements OnInit {
     }
   }
   
-
+addTodo(todo){
+  this.pendings.push(todo.value);
+  todo.value="";
+}
+setItems(){
+  localStorage.setItem('pendings',JSON.stringify(this.pendings));
+}
 }

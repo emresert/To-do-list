@@ -10,6 +10,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import {MatCardModule} from '@angular/material/card';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -24,7 +25,7 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     BrowserAnimationsModule,
     AppRoutingModule,
     MatButtonModule,MatCheckboxModule,
-    AngularFontAwesomeModule,MatInputModule,MatCardModule,DragDropModule
+    AngularFontAwesomeModule,MatInputModule,MatCardModule,DragDropModule,FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
