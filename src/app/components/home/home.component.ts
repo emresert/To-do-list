@@ -9,8 +9,7 @@ import { TodoService } from 'src/app/services/todo.service';
   
 })
 export class HomeComponent implements OnInit {
-  data = [];
-
+  data = {}; 
   constructor(
     private todoService:TodoService
   ) { }
@@ -27,7 +26,9 @@ export class HomeComponent implements OnInit {
                         event.container.data,
                         event.previousIndex,
                         event.currentIndex);
+                        
     }
+    this.updateTodo();
   }
   
   addTodo(todo){
@@ -48,5 +49,23 @@ export class HomeComponent implements OnInit {
       console.log(err);
     });
   }
-
+  
+  updateTodo(){
+    console.log(this.data);
+    this.todoService.updateTodo(this.data)
+    .subscribe((res)=> {
+      console.log(res);
+    
+    },(err)=>{
+      console.log(err)
+    });
+  }
+  removeTodo(id){
+    this.todoService.removeTodo(id).subscribe((res)=>{
+      console.log(res);
+      this.getAllTodos();
+    },(err)=>{
+      console.log(err);
+    });
+  }
 }
