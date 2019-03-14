@@ -11,11 +11,9 @@ import {MatCardModule} from '@angular/material/card';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import 
-{MatButtonModule, MatCheckboxModule,
- MatInputModule, MatIconModule, MatSnackBarModule
-} 
-from '@angular/material';
+import {MatButtonModule, MatCheckboxModule,
+ MatInputModule, MatIconModule} from '@angular/material';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -33,7 +31,7 @@ from '@angular/material';
     AngularFontAwesomeModule,MatInputModule,
     MatCardModule,DragDropModule,FormsModule,HttpClientModule,
     MatIconModule,
-    MatSnackBarModule
+    MatSnackBarModule,MatSnackBarModule
   ],
   providers: [
     /* Global değişken tanımlanacağı kısım her servis için kullanabilen apiUrl Örneği */

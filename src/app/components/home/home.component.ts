@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 import { TodoService } from 'src/app/services/todo.service';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,7 @@ import { TodoService } from 'src/app/services/todo.service';
 export class HomeComponent implements OnInit {
   data = {}; 
   constructor(
-    private todoService:TodoService
+    private todoService:TodoService,private snackBar: MatSnackBar
   ) { }
 
   ngOnInit() {
@@ -33,9 +34,10 @@ export class HomeComponent implements OnInit {
   
   addTodo(todo){
     const obj={todo:todo.value};
-    this.todoService.addTodo(obj).subscribe((res)=>{
-      console.log(res);
+    this.todoService.addTodo(obj).subscribe((res:any)=>{
+     this.openSnackBar(res.message);
     this.getAllTodos();
+    todo.value='';
     },(err)=>{console.log(err);});
   }
 
@@ -51,7 +53,7 @@ export class HomeComponent implements OnInit {
   }
   
   updateTodo(){
-    console.log(this.data);
+    
     this.todoService.updateTodo(this.data)
     .subscribe((res)=> {
       console.log(res);
@@ -61,11 +63,20 @@ export class HomeComponent implements OnInit {
     });
   }
   removeTodo(id){
-    this.todoService.removeTodo(id).subscribe((res)=>{
-      console.log(res);
-      this.getAllTodos();
-    },(err)=>{
-      console.log(err);
+    if(confirm("Bu maddeyi silmek istediğinizden emin misiniz?")){
+      this.todoService.removeTodo(id).subscribe((res)=>{
+        console.log(res);
+        this.getAllTodos();
+      },(err)=>{
+        console.log(err);
+      });
+    }
+   
+  }
+
+  openSnackBar(message: string) {
+    this.snackBar.open(message, 'Tamam', {
+      duration: 2000,
     });
   }
 }
